@@ -22,11 +22,15 @@ public class Tarefas {
        this.titulo = titulo;
    }
 
-    public Tarefas(Long id, String titulo, String descricao, boolean completa, LocalDateTime dataAgora) {
+   public Tarefas (String titulo, String descricao) {
+       this(titulo);
+       this.descricao = descricao;
+   }
+
+    public Tarefas(Long id, String titulo, String descricao, boolean completa) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.completa = completa;
-        this.dataAgora = dataAgora;
     }
 }
