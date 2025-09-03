@@ -29,7 +29,7 @@ public class AppToDoListQua {
                     String titulo = sc.next();
                     System.out.println("Digite o descricao da tarefa: ");
                     String descricao = sc.next();
-
+                    tarefa.criarTarefa(titulo, descricao);
                 }
             }
 

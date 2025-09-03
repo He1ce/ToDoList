@@ -9,8 +9,8 @@ public class TarefasService {
     private List<Tarefas> tarefas = new ArrayList<>();
     private Long contadorId = 1L;
 
-    public Tarefas criarTarefa(String titulo, String descrição) {
-        Tarefas tarefa = new Tarefas(contadorId++, titulo, descrição, false);
+    public Tarefas criarTarefa(String titulo, String descricao) {
+        Tarefas tarefa = new Tarefas(contadorId++, titulo, descricao, false);
         tarefas.add(tarefa);
         return tarefa;
     }
