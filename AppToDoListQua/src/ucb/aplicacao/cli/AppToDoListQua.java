@@ -26,10 +26,21 @@ public class AppToDoListQua {
             switch (opcao) {
                 case 1 -> {
                     System.out.println("Digite o titulo da tarefa: ");
-                    String titulo = sc.next();
+                    String titulo = sc.nextLine();
                     System.out.println("Digite o descricao da tarefa: ");
-                    String descricao = sc.next();
+                    String descricao = sc.nextLine();
                     tarefa.criarTarefa(titulo, descricao);
+                }
+                case 2 -> {}
+                case 3 -> {
+                    System.out.println("Digite o ID da tarefa que você deseja atualizar: ");
+                    long idTarefa = sc.nextLong();
+                    sc.nextLine();
+                    System.out.println("Digite o novo título da tarefa: ");
+                    String novoTituloTarefa = sc.nextLine();
+                    System.out.println("Digite o novo descricao da tarefa: ");
+                    String novoDescricaoTarefa = sc.nextLine();
+                    tarefa.atualizarTarefa(idTarefa, novoTituloTarefa, novoDescricaoTarefa);
                 }
             }
 

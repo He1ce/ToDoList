@@ -18,4 +18,18 @@ public class TarefasService {
     public List<Tarefas> getTarefas() {
         return tarefas;
     }
+
+    public Tarefas atualizarTarefa(Long id, String novoTitulo, String novoDescricao) {
+        for (Tarefas tarefa : tarefas) {
+            if (tarefa.getId().equals(id)) {
+                tarefa.setTitulo(novoTitulo);
+                tarefa.setDescricao(novoDescricao);
+
+                System.out.println("Tarefa atualizada com sucesso!");
+                return tarefa;
+            }
+        }
+        System.out.println("Tarefa informada não existe, informe outro ID");
+        return null;
+    }
 }
