@@ -32,4 +32,13 @@ public class TarefasService {
         System.out.println("Tarefa informada não existe, informe outro ID");
         return null;
     }
-}
+    private Tarefas buscaID(Long id) {
+        for (Tarefas tarefa : tarefas) {
+            if (tarefa.getId().equals(id)) {
+                return tarefa;
+            }
+        }
+        return null;
+    }
+    }
+

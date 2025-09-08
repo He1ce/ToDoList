@@ -18,8 +18,9 @@ public class AppToDoListQua {
             System.out.println("Opção 1: Criar tarefa");
             System.out.println("Opção 2: Listar tarefa");
             System.out.println("Opção 3: Atualizar tarefa");
-            System.out.println("Opção 4: Remover tarefa");
-            System.out.println("Opção 5: Sair");
+            System.out.println("Opção 4: Marcar como concluída");
+            System.out.println("Opção 5: Remover tarefa");
+            System.out.println("Opção 6: Sair");
             System.out.println("Escolha uma opção: ");
 
             int opcao = sc.nextInt();
@@ -59,6 +60,13 @@ public class AppToDoListQua {
                     System.out.println("Digite o novo descricao da tarefa: ");
                     String novoDescricaoTarefa = sc.nextLine();
                     tarefa.atualizarTarefa(idTarefa, novoTituloTarefa, novoDescricaoTarefa);
+                }
+                default -> {
+                    System.out.println("O valor inserido é inválido! Tente novamente");
+                }
+                case 6 -> {
+                    System.out.println("Saindo...");
+                    System.exit(0);
                 }
             }
 
