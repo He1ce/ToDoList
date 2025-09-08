@@ -1,4 +1,4 @@
-# ToDoList App: Organize Sua Vida com Facilidade!
+# ToDoList: Organize Sua Vida com Facilidade!
 
 ## Visão Geral
 
