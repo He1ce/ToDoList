@@ -28,4 +28,14 @@ public class TarefasService {
         }
         return false;
     }
+
+    public boolean removerTarefa(Long id) {
+        for (Tarefas t : tarefas) {
+            if (t.getId().equals(id)) {
+                tarefas.remove(t);
+                return true;
+            }
+        }
+        return false;
+    }
 }

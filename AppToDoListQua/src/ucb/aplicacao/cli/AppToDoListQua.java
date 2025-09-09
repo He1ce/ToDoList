@@ -45,7 +45,14 @@ public class AppToDoListQua {
                     System.out.println("Funcionalidade de atualizar tarefa ainda não implementada.");
                 }
                 case 4 -> {
-                    System.out.println("Funcionalidade de remover tarefa ainda não implementada.");
+                    System.out.print("Digite o ID da tarefa que deseja remover: ");
+                    Long idRemover = sc.nextLong();
+                    if (tarefa.removerTarefa(idRemover)) {
+                        System.out.println("Tarefa removida!");
+                    } else {
+                        System.out.println("Tarefa não encontrada.");
+                    }
+                    break;
                 }
                 case 5 -> {
                     System.out.println("Digite o ID da tarefa para marcar como concluída: ");
