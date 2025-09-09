@@ -18,4 +18,14 @@ public class TarefasService {
     public List<Tarefas> getTarefas() {
         return tarefas;
     }
+
+    public boolean marcarComoCompleta(Long id) {
+        for (Tarefas tarefa : tarefas) {
+            if (tarefa.getId().equals(id)) {
+                tarefa.setCompleta(true);
+                return true;
+            }
+        }
+        return false;
+    }
 }
