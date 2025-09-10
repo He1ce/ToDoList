@@ -61,6 +61,16 @@ public class AppToDoListQua {
                     String novoDescricaoTarefa = sc.nextLine();
                     tarefa.atualizarTarefa(idTarefa, novoTituloTarefa, novoDescricaoTarefa);
                 }
+                case 4 -> {
+                    System.out.print("Digite o ID da tarefa que deseja remover: ");
+                    Long idRemover = sc.nextLong();
+                    if (tarefa.removerTarefa(idRemover)) {
+                        System.out.println("Tarefa removida!");
+                    } else {
+                        System.out.println("Tarefa não encontrada.");
+                    }
+                    break;
+                }
                 default -> {
                     System.out.println("O valor inserido é inválido! Tente novamente");
                 }
