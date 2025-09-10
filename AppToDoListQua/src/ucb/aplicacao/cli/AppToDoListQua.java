@@ -2,6 +2,8 @@ package ucb.aplicacao.cli;
 import ucb.aplicacao.model.Tarefas;
 import ucb.aplicacao.service.TarefasService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -15,10 +17,11 @@ public class AppToDoListQua {
             System.out.println("\n====App to Do List ====\n");
             System.out.println("Opção 1: Criar tarefa");
             System.out.println("Opção 2: Listar tarefa");
-            System.out.println("Opção 3: Atualizar tarefa");
-            System.out.println("Opção 4: Remover tarefa");
-            System.out.println("Opção 5: Marcar tarefa como concluída");
-            System.out.println("Opção 6: Sair");
+            System.out.println("Opção 3: Buscar tarefa por ID");
+            System.out.println("Opção 4: Atualizar tarefa");
+            System.out.println("Opção 5: Remover tarefa");
+            System.out.println("Opção 6: Marcar como concluída ");
+            System.out.println("Opção 7: Sair");
             System.out.println("Escolha uma opção: ");
 
             int opcao = sc.nextInt();
@@ -69,6 +72,66 @@ public class AppToDoListQua {
                 }
                 default -> {
                     System.out.println("Opção inválida!");
+                }
+                case 2 -> {
+                    List<Tarefas> lista_tarefas = tarefa.getTarefas();
+
+                    if(lista_tarefas.isEmpty()){
+                        System.out.println("---------------------------");
+                        System.out.println("Não há tarefas registradas.");
+                        System.out.println("---------------------------");
+                    }
+                    System.out.println("\n==== Tarefas ====\n");
+                    for (Tarefas tarefa_listada : lista_tarefas) {
+                        System.out.println("Título: " + tarefa_listada.getTitulo());
+                        System.out.println("Descrição: " + tarefa_listada.getDescricao());
+                        System.out.println((tarefa_listada.isCompleta()) ? "Status: Completa" : "Status : Incompleta");
+                        System.out.println("ID: " + tarefa_listada.getId());
+                        System.out.println("----------------------------------------");
+                        }
+
+                }
+                case 3 -> {
+                    System.out.println("Digite o ID da tarefa que você deseja buscar: ");
+                    long idTarefa = sc.nextLong();
+                    sc.nextLine();
+                    tarefa.buscaID(idTarefa);
+                }
+                case 4 -> {
+                    System.out.println("Digite o ID da tarefa que você deseja atualizar: ");
+                    long idTarefa = sc.nextLong();
+                    sc.nextLine();
+                    System.out.println("Digite o novo título da tarefa: ");
+                    String novoTituloTarefa = sc.nextLine();
+                    System.out.println("Digite o novo descricao da tarefa: ");
+                    String novoDescricaoTarefa = sc.nextLine();
+                    tarefa.atualizarTarefa(idTarefa, novoTituloTarefa, novoDescricaoTarefa);
+                }
+                case 5 -> {
+                    System.out.print("Digite o ID da tarefa que deseja remover: ");
+                    Long idRemover = sc.nextLong();
+                    if (tarefa.removerTarefa(idRemover)) {
+                        System.out.println("Tarefa removida!");
+                    } else {
+                        System.out.println("Tarefa não encontrada.");
+                    }
+                    break;
+                }
+                case 6 -> {
+                    System.out.println("Digite o ID da tarefa para marcar como concluída: ");
+                    Long id = sc.nextLong();
+                    if (tarefa.marcarComoCompleta(id)) {
+                        System.out.println("Tarefa marcada como concluída com sucesso!");
+                    } else {
+                        System.out.println("Tarefa não encontrada!");
+                    }
+                }
+                case 7 -> {
+                    System.out.println("Saindo...");
+                    System.exit(0);
+                }
+                default -> {
+                    System.out.println("O valor inserido é inválido! Tente novamente");
                 }
             }
 

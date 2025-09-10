@@ -18,15 +18,36 @@ public class TarefasService {
     public List<Tarefas> getTarefas() {
         return tarefas;
     }
-
-    public boolean marcarComoCompleta(Long id) {
+  
+    public Tarefas atualizarTarefa(Long id, String novoTitulo, String novoDescricao) {
         for (Tarefas tarefa : tarefas) {
             if (tarefa.getId().equals(id)) {
-                tarefa.setCompleta(true);
-                return true;
+                tarefa.setTitulo(novoTitulo);
+                tarefa.setDescricao(novoDescricao);
+
+                System.out.println("Tarefa atualizada com sucesso!");
+                return tarefa;
             }
         }
-        return false;
+        System.out.println("Tarefa informada não existe, informe outro ID");
+        return null;
+    }
+  
+    public Tarefas buscaID(Long id) {
+        for (Tarefas tarefa : tarefas) {
+            if (tarefa.getId().equals(id)) {
+                System.out.println("----------------------------------------");
+                System.out.println("Título: " + tarefa.getTitulo());
+                System.out.println("Descrição: " + tarefa.getDescricao());
+                System.out.println((tarefa.isCompleta()) ? "Status: Completa" : "Status : Incompleta");
+                System.out.println("ID: " + tarefa.getId());
+                System.out.println("----------------------------------------");
+                return tarefa;
+            }
+        }
+        System.out.println("Tarefa não encontrada!");
+        return null;
+
     }
 
     public boolean removerTarefa(Long id) {
@@ -38,4 +59,15 @@ public class TarefasService {
         }
         return false;
     }
+
+    public boolean marcarComoCompleta(Long id) {
+        for (Tarefas tarefa : tarefas) {
+            if (tarefa.getId().equals(id)) {
+                tarefa.setCompleta(true);
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
