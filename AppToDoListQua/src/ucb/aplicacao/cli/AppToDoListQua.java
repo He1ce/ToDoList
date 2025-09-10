@@ -34,6 +34,44 @@ public class AppToDoListQua {
                     System.out.println("Digite o descricao da tarefa: ");
                     String descricao = sc.nextLine();
                     tarefa.criarTarefa(titulo, descricao);
+                    System.out.println("Tarefa criada com sucesso!");
+                }
+                case 2 -> {
+                    System.out.println("\n=== Lista de Tarefas ===");
+                    for (Tarefas t : tarefa.getTarefas()) {
+                        System.out.println("ID: " + t.getId() + " - " + t.getTitulo() + 
+                                         " - " + t.getDescricao() + 
+                                         " - Completa: " + (t.isCompleta() ? "Sim" : "Não"));
+                    }
+                }
+                case 3 -> {
+                    System.out.println("Funcionalidade de atualizar tarefa ainda não implementada.");
+                }
+                case 4 -> {
+                    System.out.print("Digite o ID da tarefa que deseja remover: ");
+                    Long idRemover = sc.nextLong();
+                    if (tarefa.removerTarefa(idRemover)) {
+                        System.out.println("Tarefa removida!");
+                    } else {
+                        System.out.println("Tarefa não encontrada.");
+                    }
+                    break;
+                }
+                case 5 -> {
+                    System.out.println("Digite o ID da tarefa para marcar como concluída: ");
+                    Long id = sc.nextLong();
+                    if (tarefa.marcarComoCompleta(id)) {
+                        System.out.println("Tarefa marcada como concluída com sucesso!");
+                    } else {
+                        System.out.println("Tarefa não encontrada!");
+                    }
+                }
+                case 6 -> {
+                    System.out.println("Saindo do sistema...");
+                    System.exit(0);
+                }
+                default -> {
+                    System.out.println("Opção inválida!");
                 }
                 case 2 -> {
                     List<Tarefas> lista_tarefas = tarefa.getTarefas();

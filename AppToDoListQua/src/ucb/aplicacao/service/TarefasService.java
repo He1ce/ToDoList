@@ -18,7 +18,7 @@ public class TarefasService {
     public List<Tarefas> getTarefas() {
         return tarefas;
     }
-
+  
     public Tarefas atualizarTarefa(Long id, String novoTitulo, String novoDescricao) {
         for (Tarefas tarefa : tarefas) {
             if (tarefa.getId().equals(id)) {
@@ -32,6 +32,7 @@ public class TarefasService {
         System.out.println("Tarefa informada não existe, informe outro ID");
         return null;
     }
+  
     public Tarefas buscaID(Long id) {
         for (Tarefas tarefa : tarefas) {
             if (tarefa.getId().equals(id)) {
@@ -46,6 +47,7 @@ public class TarefasService {
         }
         System.out.println("Tarefa não encontrada!");
         return null;
+
     }
 
     public boolean removerTarefa(Long id) {
