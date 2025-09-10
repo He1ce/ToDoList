@@ -18,8 +18,8 @@ public class AppToDoListQua {
             System.out.println("Opção 1: Criar tarefa");
             System.out.println("Opção 2: Listar tarefa");
             System.out.println("Opção 3: Atualizar tarefa");
-            System.out.println("Opção 4: Marcar como concluída");
-            System.out.println("Opção 5: Remover tarefa");
+            System.out.println("Opção 4: Remover tarefa");
+            System.out.println("Opção 5: Marcar como concluída ");
             System.out.println("Opção 6: Sair");
             System.out.println("Escolha uma opção: ");
 
@@ -41,6 +41,8 @@ public class AppToDoListQua {
                         System.out.println("Não há tarefas registradas.");
                         System.out.println("---------------------------");
                     }
+
+                    System.out.println("\n====App to Do List ====\n");
                     for (Tarefas tarefa_listada : lista_tarefas) {
                         System.out.println("----------------------------------------");
                         System.out.println("Título: " + tarefa_listada.getTitulo());
@@ -71,12 +73,21 @@ public class AppToDoListQua {
                     }
                     break;
                 }
-                default -> {
-                    System.out.println("O valor inserido é inválido! Tente novamente");
+                case 5 -> {
+                    System.out.println("Digite o ID da tarefa para marcar como concluída: ");
+                    Long id = sc.nextLong();
+                    if (tarefa.marcarComoCompleta(id)) {
+                        System.out.println("Tarefa marcada como concluída com sucesso!");
+                    } else {
+                        System.out.println("Tarefa não encontrada!");
+                    }
                 }
                 case 6 -> {
                     System.out.println("Saindo...");
                     System.exit(0);
+                }
+                default -> {
+                    System.out.println("O valor inserido é inválido! Tente novamente");
                 }
             }
 

@@ -50,5 +50,15 @@ public class TarefasService {
         }
         return false;
     }
+
+    public boolean marcarComoCompleta(Long id) {
+        for (Tarefas tarefa : tarefas) {
+            if (tarefa.getId().equals(id)) {
+                tarefa.setCompleta(true);
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
