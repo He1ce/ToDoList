@@ -8,3 +8,5 @@
 /dataSources.local.xml
 # Arquivos e pastas de configuração de IDE
 .idea/
+#Arquivos bytecode .class
+out/
