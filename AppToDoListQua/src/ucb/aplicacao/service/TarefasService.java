@@ -32,12 +32,19 @@ public class TarefasService {
         System.out.println("Tarefa informada não existe, informe outro ID");
         return null;
     }
-    private Tarefas buscaID(Long id) {
+    public Tarefas buscaID(Long id) {
         for (Tarefas tarefa : tarefas) {
             if (tarefa.getId().equals(id)) {
+                System.out.println("----------------------------------------");
+                System.out.println("Título: " + tarefa.getTitulo());
+                System.out.println("Descrição: " + tarefa.getDescricao());
+                System.out.println((tarefa.isCompleta()) ? "Status: Completa" : "Status : Incompleta");
+                System.out.println("ID: " + tarefa.getId());
+                System.out.println("----------------------------------------");
                 return tarefa;
             }
         }
+        System.out.println("Tarefa não encontrada!");
         return null;
     }
 
